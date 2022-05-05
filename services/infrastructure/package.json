@@ -3,11 +3,43 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "serverless package",
-    "lint": "eslint \"src/*.ts\"",
+    "build": "tsc",
+    "lint": "eslint src",
+    "test": "jest --coverage -i",
     "deploy": "serverless deploy"
   },
   "devDependencies": {
-    "serverless-bundle": "^5.0.2"
+    "@packages/common": "*",
+    "@middy/core": "^2.5.2",
+    "@middy/http-error-handler": "^2.5.2",
+    "@middy/http-json-body-parser": "^2.5.2",
+    "@middy/validator": "^2.5.2",
+    "@types/aws-lambda": "^8.10.84",
+    "@types/serverless-jest-plugin": "^0.3.0",
+    "aws-lambda": "^1.0.6",
+    "env-var": "^7.1.1",
+    "http-status-codes": "^2.1.4",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13",
+    "serverless-jest-plugin": "^0.4.0",
+    "typesafe-api-gateway": "^1.0.0"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/"
+    ],
+    "collectCoverageFrom": [
+      "src/*.{js,ts}",
+      "src/**/*.{js,ts}"
+    ]
   }
 }
