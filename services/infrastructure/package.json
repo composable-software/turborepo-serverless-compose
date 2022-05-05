@@ -1,0 +1,13 @@
+{
+  "name": "@services/infrastructure",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "serverless package",
+    "lint": "eslint \"src/*.ts\"",
+    "deploy": "serverless deploy"
+  },
+  "devDependencies": {
+    "serverless-bundle": "^5.0.2"
+  }
+}
