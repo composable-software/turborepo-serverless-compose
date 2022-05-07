@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "prebuild": "rimraf .serverless",
+    "build": "sls package --stage dev",
     "lint": "eslint src",
-    "test": "jest --coverage -i",
-    "deploy": "serverless deploy"
+    "lint:fix": "eslint src --fix",
+    "test": "jest --coverage -i"
   },
   "devDependencies": {
     "@packages/common": "*",

@@ -32,7 +32,8 @@ const configuration: AWS = {
   package: { individually: true },
   custom:  {
     bundle: {
-      includeFIles: 'src',
+      sourcemaps:   false,
+      excludeFiles: '**/*.test.ts',
     },
   },
 };
