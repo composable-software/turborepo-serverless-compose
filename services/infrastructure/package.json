@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "prebuild": "rimraf .serverless",
+    "clean:dependencies": "rimraf node_modules",
+    "clean:cache": "rimraf .turbo .serverless dist",
     "build": "sls package --stage dev",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
@@ -11,19 +12,10 @@
   },
   "devDependencies": {
     "@packages/common": "*",
-    "@middy/core": "^2.5.2",
-    "@middy/http-error-handler": "^2.5.2",
-    "@middy/http-json-body-parser": "^2.5.2",
-    "@middy/validator": "^2.5.2",
     "@types/aws-lambda": "^8.10.84",
-    "@types/serverless-jest-plugin": "^0.3.0",
     "aws-lambda": "^1.0.6",
     "env-var": "^7.1.1",
-    "http-status-codes": "^2.1.4",
-    "inversify": "^6.0.1",
-    "reflect-metadata": "^0.1.13",
-    "serverless-jest-plugin": "^0.4.0",
-    "typesafe-api-gateway": "^1.0.0"
+    "http-status-codes": "^2.1.4"
   },
   "jest": {
     "transform": {
@@ -32,7 +24,11 @@
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
     "moduleFileExtensions": [
       "ts",
-      "js"
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",

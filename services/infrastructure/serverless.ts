@@ -1,10 +1,10 @@
 import type { AWS } from '@serverless/typescript';
 
-import { functions } from './src/handler';
+import { functions } from './src/functions';
 
 const plugins = [
   'serverless-bundle',
-  'serverless-jest-plugin',
+  'serverless-plugin-test-helper',
 ];
 
 /**
@@ -21,9 +21,6 @@ const configuration: AWS = {
     apiGateway: {
       minimumCompressionSize:     1024,
       shouldStartNameWithService: true,
-    },
-    environment: {
-      NODE_ENV: 'dev',
     },
     lambdaHashingVersion: '20201221',
   },
